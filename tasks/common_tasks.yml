@@ -1,0 +1,11 @@
+---
+
+- name: Install common tools
+  apt: name={{ item }} update_cache=yes state=installed
+  with_items: 
+    - vim
+    - atop
+    - tree
+
+#- name: 
+

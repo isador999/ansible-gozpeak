@@ -1,0 +1,51 @@
+gozpeak_env: "int"
+
+redis_version: "latest"
+redis_lv_create: yes
+redis_lv_name: "lv_redis"
+redis_vg_root: "vg_vroot"
+redis_lvsize: "1G"
+redis_maxmemory: "1gb"
+redis_maxmemory_policy: "allkeys-lru"
+
+redis_cluster: no
+redis_loglevel: "notice"
+redis_appendonly: "yes"
+
+redis_cluster_node_timeout: "5000"
+
+
+apache_vg_name: vg_vroot
+apache_lv_name: lv_www
+
+apache_use_lvm: true
+apache_lv_size: 2g
+
+apache_datadir: '/var/www'
+apache_mod_list: 
+  - headers
+  - ssl
+  - rewrite
+
+
+mysql_use_lvm: true
+mysql_vg_vname: vg_vroot
+mysql_lv_name: lv_mysql
+mysql_lv_size: 2G
+
+mysql_replication: false
+    - mysql_key_buffer_size: "32M"
+    - mysql_db:
+        - name: "gozpeak"
+          replicate: "no"
+
+mysql_root_password: "passwd"
+mysql_backup_username: "backup"
+mysql_backup_password: "passwd"
+mysql_app_username: "gozpeak"
+mysql_app_password: "passwd"
+
+mysql_lv_backup_name: lv_backup_mysql
+mysql_lv_backup_size: 1G
+mysql_lv_backup_mountpoint: /var/backupvolume
+

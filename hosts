@@ -1,0 +1,9 @@
+[gozpeak_front]
+jphdevstack01l.btsys.local
+
+[gozpeak_bdd]
+jphdevstack01l.btsys.local
+
+[env_integration:children]
+gozpeak_front
+gozpeak_bdd

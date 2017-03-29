@@ -1,0 +1,21 @@
+---
+
+- name: Install prerequisites on all hosts
+  remote_user: root
+  hosts: gozpeak_front:gozpeak_bdd
+  tasks: 
+    - include: tasks/common_tasks.yml
+
+
+- name: Install MySQL server
+  remote_user: root
+  hosts: gozpeak_bdd
+  roles: 
+    - ansible-mysql
+
+
+- name: Install Apache server
+  remote_user: root
+  hosts: gozpeak_front
+  roles: 
+    - ansible-apache
